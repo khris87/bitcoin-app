@@ -5,6 +5,7 @@ import {Container, Navbar, Nav} from "react-bootstrap";
 import BitCoinCard from "./components/BitCoinCard";
 import ListItem from "./components/ListItem";
 import Clock from "./components/Clock";
+import Tvmaze from "./components/tv-maze";
 import axios from "axios";
 import { messaging } from "./init-fcm";
 
@@ -29,9 +30,6 @@ class App extends Component {
                 this.setState({coins: data.data})
             })
         messaging.requestPermission()
-            .then(async function() {
-                const token = await messaging.getToken();
-            })
             .catch(function(err) {
                 console.log("Unable to get permission to notify.", err);
             });
@@ -80,7 +78,7 @@ class App extends Component {
                         />
                     ))}
                 </Container>
-
+                <Tvmaze />
             </section>
         );
     }

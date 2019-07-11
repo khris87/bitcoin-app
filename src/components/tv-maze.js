@@ -15,7 +15,6 @@ export default class Tvmaze extends React.Component
 
     handleSeekingChange(event) {
         this.setState({seek: event.target.value});
-        console.log(this.state.seek);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -26,7 +25,6 @@ export default class Tvmaze extends React.Component
                     response => response.data
                     )
                 .then((data) => {
-                    console.log('data : ', data)
                     this.setState({infos: data})
                 })
             messaging.requestPermission()
@@ -48,7 +46,7 @@ export default class Tvmaze extends React.Component
                 { this.state.infos.map((info) =>
                         <div>
                             <h4>{ info.show.name }</h4>
-                            { info.show.image === null ? 'no picture' : <img src={ info.show.image.medium } alt={ info.show.name } />}
+                            { info.show.image === null ? 'no picture' : <img src={ info.show.image.original } alt={ info.show.name } />}
                             <article dangerouslySetInnerHTML={{ __html: info.show.summary }}></article>
                         </div>
                     )}

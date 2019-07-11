@@ -8,6 +8,7 @@ import Clock from "./components/Clock";
 import Tvmaze from "./components/tv-maze";
 import axios from "axios";
 import { messaging } from "./init-fcm";
+import MeteoConcept from './components/MeteoConcept';
 
 class App extends Component {
     constructor(props) {
@@ -79,6 +80,7 @@ class App extends Component {
                     ))}
                 </Container>
                 <Tvmaze />
+                <MeteoConcept />
             </section>
         );
     }
